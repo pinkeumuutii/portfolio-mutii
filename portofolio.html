@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Mahasiswa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #FFB6C1, #FF69B4, #FFC0CB); /* Gradien pink menarik */
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparan untuk kontras */
+            backdrop-filter: blur(10px);
+            color: #FF69B4; /* Pink untuk teks */
+            padding: 2rem 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        nav {
+            margin-top: 1rem;
+        }
+
+        nav a {
+            color: #FF69B4;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #FF1493; /* Pink lebih gelap saat hover */
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        section h2 {
+            color: #FF69B4;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .about img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #FF69B4;
+            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+        }
+
+        .about p {
+            flex: 1;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .skills ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skills li {
+            background: linear-gradient(45deg, #FF69B4, #FFC0CB);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .skills li:hover {
+            transform: scale(1.05);
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project {
+            background: #FFF;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid #FFB6C1;
+            text-align: center;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .project:hover {
+            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.4);
+        }
+
+        .project img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .project h3 {
+            color: #FF69B4;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .contact p {
+            text-align: center;
+            margin: 0.5rem 0;
+        }
+
+        .contact a {
+            color: #FF69B4;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #FF69B4;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            border-radius: 20px 20px 0 0;
+            margin-top: 2rem;
+        }
+
+        /* Responsif untuk mobile */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+            .skills ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            .projects {
+                grid-template-columns: 1fr;
+            }
+            .about {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Portofolio Mahasiswa</h1>
+            <p>Tampilkan Kreativitas dan Keahlian Anda</p>
+            <nav>
+                <a href="#about">Tentang Saya</a>
+                <a href="#skills">Keahlian</a>
+                <a href="#projects">Proyek</a>
+                <a href="#contact">Kontak</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="about" class="about">
+            <img src="https://via.placeholder.com/150" alt="Foto Profil Mahasiswa"> <!-- Ganti dengan path gambar Anda -->
+            <div>
+                <h2>Tentang Saya</h2>
+                <p>Halo! Saya adalah mahasiswa yang penuh semangat dalam dunia teknologi dan desain. Saya senang belajar hal baru, mengembangkan proyek inovatif, dan berbagi pengetahuan. Portofolio ini menampilkan perjalanan saya dalam mencapai impian.</p>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <h2>Keahlian</h2>
+            <ul>
+                <li>HTML & CSS</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>Desain Grafis</li>
+                <li>Photoshop</li>
+            </ul>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2>Proyek</h2>
+            <div class="project">
+                <img src="https://via.placeholder.com/300x150/FFB6C1/FFFFFF?text=Website+Portofolio" alt="Screenshot Website Portofolio"> <!-- Ganti dengan path gambar Anda -->
+                <h3>Website Portofolio</h3>
+                <p>Website sederhana dan menarik ini dibuat menggunakan HTML dan CSS dengan tema pink yang elegan.</p>
+            </div>
+            <div class="project">
+                <img src="https://via.placeholder.com/300x150/FF69B4/FFFFFF?text=Kalkulator" alt="Screenshot Aplikasi Kalkulator"> <!-- Ganti dengan path gambar Anda -->
+                <h3>Aplikasi Kalkulator</h3>
+                <p>Aplikasi kalkulator interaktif yang dikembangkan dengan JavaScript untuk kemudahan penggunaan.</p>
+            </div>
+            <div class="project">
+                <img src="https://via.placeholder.com/300x150/FFC0CB/FFFFFF?text=Poster" alt="Gambar Desain Poster"> <!-- Ganti dengan path gambar Anda -->
+                <h3>Desain Poster</h3>
+                <p>Koleksi poster promosi acara kampus yang dirancang dengan kreativitas tinggi menggunakan Photoshop.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Kontak</h2>
+            <p>Email: mahasiswa@example.com</p>
+            <p>LinkedIn: <a href="#">linkedin.com/in/mahasiswa</a></p>
+            <p>GitHub: <a href="#">github.com/mahasiswa</a></p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Portofolio Mahasiswa. Dibuat dengan cinta dan kreativitas.</p>
+    </footer>
+</body>
+</html>
