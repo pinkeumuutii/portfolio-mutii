@@ -7,12 +7,19 @@
 
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
+  font-family:'Plus Jakarta Sans', sans-serif;
+}
+
+h1,h2,h3{
+  font-family:'Montserrat', sans-serif;
 }
 
 body{
@@ -45,9 +52,16 @@ header h2{color:white}
 
 nav a{
   color:white;
-  margin-left:1.2rem;
   text-decoration:none;
-  position:relative;
+  padding:.55rem 1.1rem;
+  border-radius:22px;
+  align-items:center;
+  gap:6px;
+  transition:.3s;
+}
+
+nav a:hover{
+  background:rgba(255,255,255,.25);
 }
 
 nav a::after{
@@ -86,18 +100,35 @@ nav a:hover::after{width:100%}
   color:#C96B84;
 }
 
+/* ===== FOTO INTERAKTIF ===== */
+.about-photo{
+  display:flex;
+  justify-content:center;
+}
+
 .about-photo .frame{
-  padding:15px;
-  border-radius:25px;
   background:linear-gradient(135deg,#E39AAE,#C96B84);
+  padding:18px;
+  border-radius:30px;
+  display:flex;
+  gap:18px;
 }
 
 .about-photo img{
-  width:235px;
+  width:230px;
   height:280px;
   object-fit:cover;
-  border-radius:18px;
+  border-radius:22px;
   background:white;
+  transition:.5s ease;
+  cursor:pointer;
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+/* HOVER EFFECT */
+.about-photo img:hover{
+  transform:scale(1.08) rotate(-1deg);
+  box-shadow:0 18px 45px rgba(201,107,132,.6);
 }
 
 /* ===== SKILLS ===== */
@@ -157,10 +188,6 @@ nav a:hover::after{width:100%}
   margin-bottom:1rem;
 }
 
-.project-card h3{
-  color:#C96B84;
-  margin-bottom:.5rem;
-}
 
 /* ===== CONTACT ===== */
 .contact-wrapper{
@@ -305,16 +332,27 @@ footer{
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <header>
   <h2>My Portfolio</h2>
-  <nav>
-    <a href="#about">Tentang</a>
-    <a href="#skills">Keahlian</a>
-    <a href="#projects">Proyek</a>
-    <a href="#contact">Kontak</a>
-  </nav>
+<nav class="navbar">
+  <a href="#top" class="nav-link active">
+    <i class='bx bx-home'></i> Home
+  </a>
+  <a href="#about" class="nav-link">
+    <i class='bx bx-user'></i> Tentang
+  </a>
+  <a href="#skills" class="nav-link">
+    <i class='bx bx-code-alt'></i> Keahlian
+  </a>
+  <a href="#projects" class="nav-link">
+    <i class='bx bx-briefcase'></i> Proyek
+  </a>
+  <a href="#contact" class="nav-link">
+    <i class='bx bx-envelope'></i> Kontak
+  </a>
+</nav>
 </header>
 
 <section id="about" class="about reveal">
@@ -329,7 +367,6 @@ This portfolio represents my journey of learning, building, and growing to achie
   <div class="about-photo">
     <div class="frame">
       <img src="images/pp1.jpeg">
-      <img src="images/pp2.jpeg">
     </div>
   </div>
 </section>
@@ -359,16 +396,16 @@ This portfolio represents my journey of learning, building, and growing to achie
       <p style="text-align: justify;">Website data diri sederhana menggunakan HTML & CSS. Website ini hanya sebagai presentasi untuk materi dasar HTML dan CSS.</p>
     </div>
     <div class="project-card">
-      <img src="images/pj3.jpeg" style="height: 160px;">
-      <h3>Desain Grafis</h3>
-      <p style="text-align: justify;">Undangan, spanduk, kartu nama, logo, dan lainnya.</p>
+      <img src="images/pjj3.jpeg" style="height: 150px;">
+      <h3>Project IoT Running Text LCD</h3>
+      <p style="text-align: justify;">Merancang Project IoT dengan Arduino UNO, LCD 16x2, dan lampu LED yang dapat menampilkan status toko.</p>
     </div>
   </div>
 </section>
 
 <section id="contact" class="contact-wrapper reveal">
   <div class="contact-info">
-    <h2>Kontak Saya</h2><br>
+    <h1>Kontak Saya</h1><br>
     <div class="contact-item">
     <i class='bx bx-envelope'></i>
     <a href="mailto:mutiara.rahmadani.7334@gmail.com">
@@ -409,10 +446,21 @@ This portfolio represents my journey of learning, building, and growing to achie
 
 <footer>
   <div class="footer-menu">
-    <a href="#about">Tentang</a>
-    <a href="#skills">Keahlian</a>
-    <a href="#projects">Proyek</a>
-    <a href="#contact">Kontak</a>
+      <a href="#top" class="nav-link active">
+      <i class='bx bx-home'></i> Home
+    </a>
+    <a href="#about" class="nav-link">
+      <i class='bx bx-user'></i> Tentang
+    </a>
+    <a href="#skills" class="nav-link">
+      <i class='bx bx-code-alt'></i> Keahlian
+    </a>
+    <a href="#projects" class="nav-link">
+      <i class='bx bx-briefcase'></i> Proyek
+    </a>
+    <a href="#contact" class="nav-link">
+      <i class='bx bx-envelope'></i> Kontak
+    </a>
   </div>
   <p>Made with 💖 by Mutiara © 2026</p>
 </footer>
@@ -427,6 +475,17 @@ const observer=new IntersectionObserver(entries=>{
   });
 },{threshold:.2});
 reveals.forEach(el=>observer.observe(el));
+</script>
+
+<script>
+const navLinks = document.querySelectorAll(".nav-link");
+
+navLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.forEach(l => l.classList.remove("active"));
+    link.classList.add("active");
+  });
+});
 </script>
 
 </body>
