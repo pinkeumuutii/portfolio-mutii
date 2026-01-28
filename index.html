@@ -271,6 +271,27 @@ nav a:hover::after{width:100%}
   transform:translateY(-4px);
 }
 
+.form-row{
+  display:flex;
+  gap:1rem;
+}
+
+.form-row input{
+  flex:1;
+}
+
+.contact-form textarea{
+  min-height:150px;
+  resize:none;
+}
+
+@media (max-width:600px){
+  .form-row{
+    flex-direction:column;
+  }
+}
+
+
 /* ===== FOOTER ===== */
 footer{
   background:linear-gradient(120deg,#C96B84,#6B3B46);
@@ -409,38 +430,44 @@ This portfolio represents my journey of learning, building, and growing to achie
     <div class="contact-item">
     <i class='bx bx-envelope'></i>
     <a href="mailto:mutiara.rahmadani.7334@gmail.com">
-        Email
+      mutiara.rahmadani.7334@gmail.com
     </a>
     </div>
 
     <div class="contact-item">
     <i class='bx bxl-instagram'></i>
     <a href="https://www.instagram.com/pinkeumuutii" target="_blank">
-        Instagram
+        pinkeumuutii
     </a>
     </div>
 
     <div class="contact-item">
     <i class='bx bxl-whatsapp'></i>
     <a href="https://wa.me/6283186318851" target="_blank">
-        WhatsApp
+        +6283186318851
     </a>
     </div>
 
     <div class="contact-item">
     <i class='bx bxl-github'></i>
     <a href="https://github.com/pinkeumuutii" target="_blank">
-        GitHub
+        pinkeumuutii
     </a>
     </div>
   </div>
 
   <form class="contact-form" action="mailto:email@gmail.com" method="post" enctype="text/plain">
-    <h2>Text Me</h2><br>
-    <input type="text" name="name" placeholder="Your Name">
-    <input type="email" name="email" placeholder="Your Email">
-    <textarea name="message" placeholder="Your Message"></textarea>
-    <button type="submit">Send Message</button>
+  <h2>Text Me</h2><br>
+  <form id="contact-form" class="contact-form">
+  <div class="form-row">
+    <input type="text" name="name" placeholder="Nama" required>
+    <input type="email" name="email" placeholder="Email" required>
+  </div>
+
+  <input type="text" name="title" placeholder="Judul" required>
+
+  <textarea name="message" placeholder="Pesan" required></textarea>
+  <button type="submit">Send Message</button>
   </form>
 </section>
 
@@ -475,6 +502,32 @@ const observer=new IntersectionObserver(entries=>{
   });
 },{threshold:.2});
 reveals.forEach(el=>observer.observe(el));
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+  (function () {
+    emailjs.init("e4j2CJ4lvE9D3iCkL");
+  })();
+
+  document.getElementById("contact-form")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      emailjs.sendForm(
+        "service_liq4m9a",
+        "template_c7l2thp",
+        this
+      )
+      .then(function () {
+        alert("Pesan berhasil dikirim!");
+        document.getElementById("contact-form").reset();
+      }, function (error) {
+        alert("Gagal mengirim pesan 😥");
+        console.log(error);
+      });
+    });
 </script>
 
 <script>
